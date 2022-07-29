@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<div class='second-div-message'>
+    <div class='contentbox' style='width:70%; height:55%'>
+
+        <h3>Uploaded Successfully</h3>
+        <hr>
+
+        <h6>Your data has been submitted successfully</h6>
+        <br>
+        <a href="{% url 'App_RFA3:rfadashboard' %}" class="btn btn-info custom-btn btn-sm">Dashboard</a>
+        <a href="{% url 'App_RFA3:monthlyupload' %}" class="btn btn-info custom-btn btn-sm">Monthly Input</a>
+
+    </div>
+</div>
+{% endblock %}

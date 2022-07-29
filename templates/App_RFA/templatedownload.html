@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<div class='second-div-form'>
+    <div class='contentbox' style='width:95%; height:85%'>
+
+
+        <h3>RFA Data Input Templates</h3>
+        <hr>
+
+        <input type="text" id="search" placeholder="Search Template" class="form-control">
+        <br>
+        <table class='table table-sm'>
+            <thead bgcolor='#EDEDED'>
+                <tr>
+                    <th>Sector</th>
+                    <th>Type</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id='table'>
+                <tr>
+                    <td>Shelter</td>
+                    <td>Target Setup</td>
+                    <td><a style='color:#D10073' href="https://drive.google.com/uc?export=download&id=1fKbzGnjwE-ZyMJNTe-6kOYN4I0h74wAj"><i class="fa-solid fa-download"></i> download</a></td>
+                </tr>
+                <tr>
+                    <td>Shelter</td>
+                    <td>Monthly Data</td>
+                    <td><a style='color:#D10073' href="https://drive.google.com/uc?export=download&id=1fKM83qhIxeYbW3d5VoRBl5_n8G9oyD_M"><i class="fa-solid fa-download"></i> download</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+        <script>
+            var $rows = $('#table tr');
+            $('#search').keyup(function() {
+                var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+                $rows.show().filter(function() {
+                    var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                    return !~text.indexOf(val);
+                }).hide();
+            });
+        </script>
+
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+.main-body{
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #5a6074;
+    position: fixed;
+}
+
+.second-div{
+    padding: 6%;
+    height: 100%;
+    width: 80%;
+    align-items: center;
+    transform: translateX(12%);
+}
+
+.second-div-message{
+    padding: 6%;
+    height: 100%;
+    width: 80%;
+    align-items: center;
+    transform: translateX(23%);
+}
+
+.second-div-form{
+    padding: 5%;
+    height: 100%;
+    width: 80%;
+    align-items: center;
+    transform: translateX(14%);
+}
+
+.contentbox{
+    color: #3b3b3b;
+    background-color: #fcfcfc;
+    border-radius: 1.5%;
+    box-shadow: 10px 10px 12px #424242;
+    font-family: Tahoma, 'Trebuchet MS', 'Segoe UI', Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 13px;
+    font-weight: 450;
+    padding: 4%;
+    height: 100%;
+    width: 40%;
+    align-items: center;
+    overflow: auto;
+}
+
+.contentbox::-webkit-scrollbar {
+    display: none;
+}
+
+.logo-content{
+    position: absolute;
+    top: 45%;
+    right: 1%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+
+.btn-info.custom-btn{
+    background-color: #D10073;
+	border-color: #D10073;
+    box-shadow: none;
+}
+.btn-info.custom-btn:hover{
+    background-color: #dd278b;
+}
+.btn-info.custom-btn:active:focus{
+    background-color: #D10073;
+    box-shadow: none;
+}
+
+
+
+.btn-dark.custom-btn2{
+    color: #cfd1da;
+    font-size: x-small;
+    background-color: #595e70;
+	border-color: #595e70;
+    box-shadow: none;
+}
+.btn-dark.custom-btn2:hover{
+    background-color: #6a7086;
+}
+.btn-dark.custom-btn2:active:focus{
+    color: #cfd1da;
+    background-color: #5f6477;
+    border-color: #5f6477;
+    box-shadow: none;
+}

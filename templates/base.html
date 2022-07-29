@@ -1,0 +1,94 @@
+{% load static %}
+{% load i18n %}
+{% load account %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCMP-MIS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href= {% static 'css/style.css' %}>
+    <link rel="stylesheet" type="text/css" href= {% static 'css/style2.css' %}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<div class="main">
+    <!-- page -->
+    {% block body_block %}
+    {% endblock %}
+
+    {% block extra_script %}
+    {% endblock %}
+
+</div>
+<div class='wrapper'>
+    <div class='nav-side-menu'>
+        <div class='brand2'>
+            <img src="{%static 'image/BRAC_Logo.png' %}" length=45% width=45% alt="">
+            <p>Humanitarian Crisis Management Programme (HCMP)</p>
+        </div>
+        <div class='menu-list'>
+            <ul id="menu-content" class="menu-content collapse out">
+
+
+                <li data-toggle="collapse" data-target="#rfa" class="collapsed"><a href="#"><i class="fa-regular fa-circle-play"></i>Result Framework</a></li>
+                <ul class="sub-menu collapse" id="rfa">
+                    <li><a href="{% url 'App_RFA:rfatempdownload' %}">Download Template</a></li>
+                    <li><a href="{% url 'App_RFA:targetupload' %}">Target Setup</a></li>
+                    <li><a href="{% url 'App_RFA:monthlyupload' %}">Monthly Submission</a></li>
+                    <li><a href="{% url 'App_RFA:rfadashboard' %}">RFA Dashboard</a></li>
+                </ul>
+
+                <li><a href="{% url 'App_Dash:servicemapping' %}"><i class="fa-regular fa-circle-play"></i>Area Coverage Mapping</a></li>
+                
+                
+                <li data-toggle="collapse" data-target="#live" class="collapsed"><a href="#"><i class="fa-regular fa-circle-play"></i>Sector Live Analytics</a></li>
+                <ul class="sub-menu collapse" id="live">
+                    <li><a href="{% url 'App_Dash:health' %}">Health</a></li>
+                    <li><a href="{% url 'App_Dash:nutrition' %}">Nutrition</a></li>
+                    <li><a href="{% url 'App_Dash:shelter' %}">Shelter</a></li>
+                </ul>
+
+
+
+
+            </ul>      
+        </div>
+    </div>
+    <div class='nav-bottom-menu row'>
+
+        <div class='top-content col-sm-7'>MIS DATA HUB (test)</div>
+
+        <div class='top-content col-sm-5' align="right">
+            <button class="btn btn-dark custom-btn2 btn-sm" onclick="refreshIframe();"><i class="fa-solid fa-arrows-rotate"></i> Reload</button>
+            <a href="{% url 'account_logout' %}"><button class="btn btn-dark custom-btn2 btn-sm"><i class="fa-solid fa-right-from-bracket"></i> Log-Out</button></a>
+        <script>
+
+            function refreshIframe() {
+                var ifr = document.getElementsByName('ifrm')[0];
+                ifr.src = ifr.src;
+            }
+            
+        </script>
+        </div>
+    </div>
+    <div class='nav-bottom-menu-left'>
+        <div class=''>
+            {% if user.is_authenticated %}
+            <p><i class="fa-regular fa-user"></i> user: {{user.username}}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

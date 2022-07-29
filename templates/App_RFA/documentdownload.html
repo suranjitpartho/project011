@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<div class='second-div-form'>
+    <div class='contentbox' style='width:95%; height:85%'>
+
+
+        <h3>PUBLISHED MEAL REPORTS AND DOCUMENTS</h3>
+        <hr>
+
+        <input type="text" id="search" placeholder="Search Document" class="form-control">
+        <br>
+        <table class='table table-sm'>
+            <thead bgcolor='#EDEDED'>
+                <tr>
+                    <th>Sector</th>
+                    <th>Details/Report Name</th>
+                    <th>Published</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id='table'>
+                <tr>
+                    <td>Shelter</td>
+                    <td>Programme Implementation Quality Assessment</td>
+                    <td>June, 2022</td>
+                    <td><a style='color:#D10073' href="https://drive.google.com/uc?export=download&id=1Wr4g12cNH1VC7K2ElYfR3lTnzApYD84g"><i class="fa-solid fa-download"></i> download</a></td>
+                </tr>
+                <tr>
+                    <td>Education</td>
+                    <td>Programme Implementation Quality Assessment</td>
+                    <td>June, 2022</td>
+                    <td><a style='color:#D10073' href="https://drive.google.com/uc?export=download&id=1WsZGgNQFJtqBLf96cPMaDZEocw7mdRgE"><i class="fa-solid fa-download"></i> download</a></td>
+                </tr>
+                <tr>
+                    <td>Child Protection</td>
+                    <td>Programme Implementation Quality Assessment</td>
+                    <td>June, 2022</td>
+                    <td><a style='color:#D10073' href="https://drive.google.com/uc?export=download&id=1WytvGQjG93NhHU1Nh8M_CNxDmbQ6elpk"><i class="fa-solid fa-download"></i> download</a></td>
+                </tr>
+                <tr>
+                    <td>Protection</td>
+                    <td>Programme Implementation Quality Assessment</td>
+                    <td>June, 2022</td>
+                    <td><a style='color:#D10073' href="https://drive.google.com/uc?export=download&id=1X1zRei0n33qssxKiHiHexp3v0ZvOMN5h"><i class="fa-solid fa-download"></i> download</a></td>
+                </tr>
+                <tr>
+                    <td>Health & Nutrition</td>
+                    <td>Programme Implementation Quality Assessment</td>
+                    <td>June, 2022</td>
+                    <td><a style='color:#D10073' href="https://drive.google.com/uc?export=download&id=1X0e9LebC5JuKdIVkAzTJywC7qqAsRRSm"><i class="fa-solid fa-download"></i> download</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+        <script>
+            var $rows = $('#table tr');
+            $('#search').keyup(function() {
+                var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+                $rows.show().filter(function() {
+                    var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                    return !~text.indexOf(val);
+                }).hide();
+            });
+        </script>
+
+
+    </div>
+</div>
+{% endblock %}

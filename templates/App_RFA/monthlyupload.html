@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<div class='second-div-form'>
+    <div class='contentbox' style='width:95%; height:85%'>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Monthly Input</h3>
+            <hr>
+            <h6>Submit your monthly data for RFA indicators. </h6>
+            <input type="file" name="myfile" class="form-control">
+            <br>
+            <button type="submit" class="btn btn-info custom-btn btn-sm">Upload</button>
+            <br>
+        </form> 
+
+    </div>
+</div>
+{% endblock %}
